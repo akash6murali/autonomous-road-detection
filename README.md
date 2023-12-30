@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This project delivers an innovative, real-time solution for road segmentation within Autonomous Driving Assistant Systems (ADAS). It extends the capabilities of the [RS-ADAS project](https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-SAM) by integrating the advanced object detection of YOLOv8 with an automated annotation process, addressing real-time processing challenges in ADAS applications.
+This project delivers an innovative, real-time solution for road segmentation within Autonomous Driving Assistant Systems (ADAS). It extends the capabilities of the [RS-ADAS project](https://github.com/akash6murali/road-segment-anything-model) by integrating the advanced object detection of YOLOv8 with an automated annotation process, addressing real-time processing challenges in ADAS applications.
 
 
 ## Project Objective
@@ -19,7 +19,7 @@ The primary goal is to develop a road segmentation model that operates efficient
 - **Ultralytics YOLOv8 Segmentation Model**: A model trained on the annotated data for accurate, real-time road segmentation.
 
 ## Detailed Workflow
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/yolo-segment.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/yolo-segment.png" weight="20%">
 
 - **Image Collection**: Gathering a diverse set of environmental images for model training.
 - **Road Detection with YOLOv8**: Applying YOLOv8 for the initial detection of road areas in these images.
@@ -29,7 +29,7 @@ Deployment for Real-Time Inference: Implementing the trained model in ADAS for o
 
 
 ## YOLOv8 Object Detection Architecture Overview
-![U-Net Architecture with VGG Backbone](https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-SAM/blob/main/assets/yolo.jpg)
+![U-Net Architecture with VGG Backbone](https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/yolo.jpg)
 This image illustrates the detailed architecture of the YOLOv8 object detection model. It is a comprehensive schematic that outlines the flow from input image to detected objects.
 
 ### Backbone Architecture
@@ -76,27 +76,27 @@ Upsampling Layers: These layers are utilized to merge feature maps from differen
 - **Primary Metric**: Accuracy was used to gauge predictive performance.
 - **Callbacks**: Early Stopping with a patience of 12 epochs and model checkpointing to save the best-performing model iteration.
 
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/BoxF1_curve.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/BoxF1_curve.png" weight="20%">
 The F1-Confidence Curve graph plots the F1 score on the y-axis against the confidence threshold on the x-axis. The F1 score is a measure of the model's accuracy, combining precision and recall into a single metric. A perfect model would have an F1 score of 1. In this case, the curve stays close to 1 for a wide range of confidence thresholds, indicating the model maintains high accuracy across those thresholds. The highest F1 score for all classes combined is 0.79 at a confidence threshold of 0.676. This suggests that at this specific threshold, the balance between precision and recall is optimized for overall accuracy.
 
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/BoxPR_curve.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/BoxPR_curve.png" weight="20%">
 The Precision-Recall Curve graph shows the precision on the y-axis and recall on the x-axis. Precision measures the model's ability to correctly identify positive instances among all instances it labeled as positive, while recall measures the ability to find all actual positive instances. The area under the curve (AUC) can be used to assess the model's performance, with a higher AUC indicating better performance. The model's mean Average Precision (mAP) at an Intersection over Union (IoU) threshold of 0.5 is 0.856 for the road class and across all classes. This indicates a strong ability to correctly classify the road class and all classes with a high level of confidence at the specified IoU threshold.
 
 <p float="left">
-  <img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/input_video.gif" width="49%" style="margin-right: 2%;" />
-  <img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/output_video_box.gif" width="49%" />
+  <img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/input_video.gif" width="49%" style="margin-right: 2%;" />
+  <img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/main/assets/output_video_box.gif" width="49%" />
 </p>
 
 ## YOLOv8 Segmentation
 - The Ultralytics' YOLOv8 segmentation model takes the images along with the anotated labels files(.txt) performs detailed segmentation, isolating the road in real time with high precision.
 
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/MaskF1_curve.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/MaskF1_curve.png" weight="20%">
 The F1-Confidence Curve  graph shows the relationship between the F1 score and the confidence threshold for predictions. The F1 score, which balances precision and recall, is on the y-axis, while the model's confidence threshold for predictions is on the x-axis. For both "road" and "all classes," the curve is relatively flat at the top, suggesting that the model maintains a high F1 score across a wide range of confidence thresholds, signifying robust performance. The peak F1 score for "all classes" is 0.79 at a confidence threshold of approximately 0.676, indicating an optimal trade-off between precision and recall at this threshold.
 
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/MaskPR_curve.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/MaskPR_curve.png" weight="20%">
 The Precision-Recall Curve graph is a Precision-Recall curve, where precision is plotted on the y-axis and recall on the x-axis. The model's ability to correctly predict the "road" class without false positives is indicated by precision, while its ability to detect all actual instances of the "road" class is indicated by recall. The graph shows a high precision maintained across most levels of recall, with a mean Average Precision (mAP) at an Intersection over Union (IoU) threshold of 0.5 being 0.848. This high value suggests that the model is quite accurate in detecting the "road" class, with a high likelihood of true positives and a low rate of false negatives.
 
-<img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/confusion_matrix.png" weight="20%">
+<img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/confusion_matrix.png" weight="20%">
 
 Confusion Matrix for a segment model that classifies between 'road' and 'background'.
 
@@ -106,8 +106,8 @@ Confusion Matrix for a segment model that classifies between 'road' and 'backgro
 - The bottom-right quadrant would represent true negatives (TN), showing how many 'background' instances were correctly identified, but the number is not visible in this image.
 <br/>
 <p float="left">
-  <img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/output_video_box.gif" width="49%" style="margin-right: 2%;" />
-  <img src="https://github.com/AnanthaPadmanaban-KrishnaKumar/RS-YOLOv8/blob/main/assets/output_video.gif" width="49%" />
+  <img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/output_video_box.gif" width="49%" style="margin-right: 2%;" />
+  <img src="https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/output_video.gif" width="49%" />
 </p>
 
 ## Major Achievements
