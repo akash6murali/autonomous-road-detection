@@ -29,7 +29,7 @@ Deployment for Real-Time Inference: Implementing the trained model in ADAS for o
 
 
 ## YOLOv8 Object Detection Architecture Overview
-![U-Net Architecture with VGG Backbone](https://github.com/akash6murali/autonomous-road-detection-yolov8/blob/main/assets/yolo.jpg)
+![U-Net Architecture with VGG Backbone](https://github.com/akash6murali/road-segment-anything-model/blob/main/assets/yolo.jpg)
 This image illustrates the detailed architecture of the YOLOv8 object detection model. It is a comprehensive schematic that outlines the flow from input image to detected objects.
 
 ### Backbone Architecture
